@@ -1,0 +1,2427 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#180c18" />
+
+    <title>ZoraX — Bio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #180c18;
+
+        --card: rgba(38, 17, 35, 0.68);
+
+        --pink: #ff8fcf;
+        --pink2: #ff5fb7;
+        --pink3: #ffb7df;
+
+        --purple: #c99cff;
+        --purple2: #9d6cff;
+
+        --white: #fff7fc;
+        --text: #ead6e4;
+        --muted: #aa8fa5;
+
+        --border: rgba(255, 151, 207, 0.22);
+
+        --soft-border: rgba(255, 255, 255, 0.11);
+      }
+
+      /* =====================================
+   RESET
+===================================== */
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+
+        overflow-x: hidden;
+
+        color: var(--white);
+
+        font-family: 'Kanit', sans-serif;
+
+        background: linear-gradient(
+            rgba(22, 8, 20, 0.38),
+            rgba(28, 9, 25, 0.63)
+          ),
+          url('https://media.discordapp.net/attachments/1460184374711681220/1555259791499075594/My_Melody_Our_Characters_Sanrio_Wallpaper.jpg?backend=b2&ex=6abfe00d&is=6abe8e8d&hm=e1cae04d63ff5d90b17a6375fa389afe3526160c32dda46a351073a0b9c07f9f&=&format=webp&width=1082&height=676');
+
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+
+        position: relative;
+      }
+
+      /*
+    Soft dark overlay
+    ช่วยให้ตัวหนังสืออ่านง่าย
+*/
+
+      body::before {
+        content: '';
+
+        position: fixed;
+        inset: 0;
+
+        pointer-events: none;
+
+        z-index: -6;
+
+        background: radial-gradient(
+            circle at 20% 15%,
+            rgba(255, 139, 203, 0.18),
+            transparent 32%
+          ),
+          radial-gradient(
+            circle at 82% 80%,
+            rgba(183, 132, 255, 0.14),
+            transparent 35%
+          ),
+          linear-gradient(rgba(10, 4, 10, 0.16), rgba(10, 4, 10, 0.25));
+      }
+
+      /* =====================================
+   ENTER SCREEN
+===================================== */
+
+      #enterScreen {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 10000;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        background: linear-gradient(
+            rgba(24, 8, 21, 0.62),
+            rgba(30, 8, 26, 0.78)
+          ),
+          url('https://media.discordapp.net/attachments/1460184374711681220/1555259791499075594/My_Melody_Our_Characters_Sanrio_Wallpaper.jpg?backend=b2&ex=6abfe00d&is=6abe8e8d&hm=e1cae04d63ff5d90b17a6375fa389afe3526160c32dda46a351073a0b9c07f9f&=&format=webp&width=1082&height=676');
+
+        background-size: cover;
+        background-position: center;
+
+        transition: opacity 0.9s ease, visibility 0.9s ease, transform 0.9s ease;
+      }
+
+      #enterScreen.hide {
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: scale(1.04);
+
+        pointer-events: none;
+      }
+
+      /* =====================================
+   ENTER BACKGROUND
+===================================== */
+
+      .enter-bg {
+        position: absolute;
+
+        inset: 0;
+
+        pointer-events: none;
+      }
+
+      /*
+    Soft pink grid
+*/
+
+      .enter-grid {
+        position: absolute;
+
+        inset: -50%;
+
+        background-image: linear-gradient(
+            rgba(255, 145, 205, 0.055) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            90deg,
+            rgba(255, 145, 205, 0.055) 1px,
+            transparent 1px
+          );
+
+        background-size: 55px 55px;
+
+        transform: perspective(500px) rotateX(65deg) translateY(20%);
+
+        animation: gridMove 10s linear infinite;
+
+        mask-image: linear-gradient(to top, black, transparent 80%);
+      }
+
+      @keyframes gridMove {
+        from {
+          background-position: 0 0;
+        }
+
+        to {
+          background-position: 0 55px;
+        }
+      }
+
+      /*
+    Orb
+*/
+
+      .enter-orb {
+        position: absolute;
+
+        width: 430px;
+        height: 430px;
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(255, 151, 211, 0.2);
+
+        box-shadow: 0 0 100px rgba(255, 92, 177, 0.12),
+          inset 0 0 80px rgba(255, 172, 219, 0.06);
+
+        animation: enterSpin 18s linear infinite;
+      }
+
+      .enter-orb::before,
+      .enter-orb::after {
+        content: '';
+
+        position: absolute;
+
+        inset: 35px;
+
+        border-radius: 50%;
+
+        border: 1px dashed rgba(255, 161, 214, 0.16);
+      }
+
+      .enter-orb::after {
+        inset: 80px;
+
+        border-style: solid;
+
+        border-color: rgba(204, 156, 255, 0.13);
+
+        animation: enterSpin 9s linear infinite reverse;
+      }
+
+      @keyframes enterSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* =====================================
+   ENTER CONTENT
+===================================== */
+
+      .enter-content {
+        position: relative;
+
+        z-index: 2;
+
+        width: min(90%, 500px);
+
+        text-align: center;
+
+        animation: enterIn 1s ease both;
+      }
+
+      @keyframes enterIn {
+        from {
+          opacity: 0;
+
+          transform: translateY(25px) scale(0.97);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .enter-mini {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 10px;
+
+        margin-bottom: 20px;
+
+        color: var(--pink);
+
+        font-family: 'Space Grotesk';
+
+        font-size: 10px;
+
+        font-weight: 600;
+
+        letter-spacing: 4px;
+
+        text-shadow: 0 0 20px rgba(255, 105, 181, 0.45);
+      }
+
+      .enter-mini::before,
+      .enter-mini::after {
+        content: '';
+
+        width: 30px;
+        height: 1px;
+
+        background: linear-gradient(90deg, transparent, var(--pink));
+      }
+
+      .enter-mini::after {
+        background: linear-gradient(90deg, var(--pink), transparent);
+      }
+
+      .enter-logo {
+        font-family: 'Space Grotesk';
+
+        font-size: clamp(65px, 14vw, 105px);
+
+        font-weight: 700;
+
+        line-height: 0.9;
+
+        letter-spacing: -6px;
+
+        color: #fff7fc;
+
+        text-shadow: 0 0 30px rgba(255, 132, 201, 0.18);
+      }
+
+      .enter-logo span {
+        color: var(--pink);
+
+        text-shadow: 0 0 35px rgba(255, 102, 185, 0.72);
+      }
+
+      .enter-description {
+        margin-top: 22px;
+
+        color: #d7b9ce;
+
+        font-size: 12px;
+
+        line-height: 1.8;
+      }
+
+      /* =====================================
+   ENTER BUTTON
+===================================== */
+
+      .enter-button {
+        position: relative;
+
+        margin-top: 32px;
+
+        min-width: 180px;
+
+        padding: 14px 27px;
+
+        border: 1px solid rgba(255, 193, 225, 0.6);
+
+        border-radius: 13px;
+
+        color: #3b102d;
+
+        background: linear-gradient(110deg, #ffc1e3, #ff7fc5);
+
+        font-family: 'Kanit';
+
+        font-size: 13px;
+
+        font-weight: 600;
+
+        letter-spacing: 2px;
+
+        cursor: pointer;
+
+        box-shadow: 0 0 30px rgba(255, 103, 184, 0.24);
+
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .enter-button::before {
+        content: '';
+
+        position: absolute;
+
+        inset: -5px;
+
+        border-radius: 17px;
+
+        border: 1px solid rgba(255, 153, 209, 0.22);
+
+        animation: enterPulse 2s infinite;
+      }
+
+      @keyframes enterPulse {
+        50% {
+          opacity: 0.3;
+
+          transform: scale(1.04);
+        }
+      }
+
+      .enter-button:hover {
+        transform: translateY(-3px) scale(1.025);
+
+        box-shadow: 0 0 45px rgba(255, 93, 177, 0.48);
+      }
+
+      .enter-button:active {
+        transform: scale(0.97);
+      }
+
+      .enter-note {
+        margin-top: 17px;
+
+        color: #ae8da4;
+
+        font-size: 9px;
+
+        letter-spacing: 0.5px;
+      }
+
+      /* =====================================
+   LOADING SCREEN
+===================================== */
+
+      #loader {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 9999;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        background: linear-gradient(
+          rgba(28, 8, 24, 0.92),
+          rgba(18, 5, 16, 0.97)
+        );
+
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+
+      #loader.hide {
+        opacity: 0;
+
+        visibility: hidden;
+      }
+
+      .loader-content {
+        text-align: center;
+      }
+
+      .loader-logo {
+        font-family: 'Space Grotesk';
+
+        font-size: 52px;
+
+        font-weight: 700;
+
+        letter-spacing: -2px;
+
+        margin-bottom: 25px;
+      }
+
+      .loader-logo span {
+        color: var(--pink);
+
+        text-shadow: 0 0 30px rgba(255, 92, 177, 0.65);
+      }
+
+      .loader-bar {
+        width: 190px;
+
+        height: 3px;
+
+        overflow: hidden;
+
+        border-radius: 20px;
+
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .loader-progress {
+        width: 0;
+
+        height: 100%;
+
+        background: linear-gradient(
+          90deg,
+          var(--pink2),
+          var(--purple),
+          var(--pink)
+        );
+
+        box-shadow: 0 0 18px var(--pink);
+
+        animation: loading 1.8s ease forwards;
+      }
+
+      @keyframes loading {
+        to {
+          width: 100%;
+        }
+      }
+
+      /* =====================================
+   BACKGROUND EFFECTS
+===================================== */
+
+      #particles {
+        position: fixed;
+
+        inset: 0;
+
+        z-index: -5;
+
+        pointer-events: none;
+      }
+
+      .glow {
+        position: fixed;
+
+        width: 400px;
+        height: 400px;
+
+        border-radius: 50%;
+
+        filter: blur(100px);
+
+        pointer-events: none;
+
+        z-index: -4;
+
+        opacity: 0.62;
+      }
+
+      .glow.one {
+        top: -200px;
+        left: -150px;
+
+        background: rgba(255, 96, 180, 0.2);
+
+        animation: float1 10s infinite alternate ease-in-out;
+      }
+
+      .glow.two {
+        right: -180px;
+        bottom: -180px;
+
+        background: rgba(178, 112, 255, 0.17);
+
+        animation: float2 12s infinite alternate ease-in-out;
+      }
+
+      @keyframes float1 {
+        to {
+          transform: translate(100px, 80px);
+        }
+      }
+
+      @keyframes float2 {
+        to {
+          transform: translate(-80px, -70px);
+        }
+      }
+
+      .cursor-glow {
+        position: fixed;
+
+        width: 300px;
+        height: 300px;
+
+        border-radius: 50%;
+
+        pointer-events: none;
+
+        z-index: -2;
+
+        transform: translate(-50%, -50%);
+
+        background: radial-gradient(
+          circle,
+          rgba(255, 125, 197, 0.13),
+          transparent 68%
+        );
+      }
+
+      /* =====================================
+   NAVBAR
+===================================== */
+
+      nav {
+        width: min(1100px, calc(100% - 30px));
+
+        margin: 18px auto 0;
+
+        padding: 13px 17px;
+
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        border: 1px solid var(--border);
+
+        border-radius: 17px;
+
+        background: rgba(37, 14, 34, 0.56);
+
+        backdrop-filter: blur(20px);
+
+        -webkit-backdrop-filter: blur(20px);
+
+        position: relative;
+
+        z-index: 10;
+
+        box-shadow: 0 10px 35px rgba(20, 3, 17, 0.18);
+
+        animation: navIn 0.7s ease;
+      }
+
+      @keyframes navIn {
+        from {
+          opacity: 0;
+
+          transform: translateY(-15px);
+        }
+      }
+
+      .logo {
+        font-family: 'Space Grotesk';
+
+        font-size: 21px;
+
+        font-weight: 700;
+
+        letter-spacing: 1px;
+      }
+
+      .logo span {
+        color: var(--pink);
+
+        text-shadow: 0 0 18px rgba(255, 101, 182, 0.35);
+      }
+
+      .nav-right {
+        display: flex;
+
+        align-items: center;
+
+        gap: 20px;
+      }
+
+      .nav-link {
+        color: #c5a7bc;
+
+        font-size: 13px;
+
+        text-decoration: none;
+
+        transition: 0.25s;
+      }
+
+      .nav-link:hover {
+        color: var(--pink3);
+
+        text-shadow: 0 0 14px rgba(255, 124, 194, 0.35);
+      }
+
+      /* =====================================
+   ONLINE STATUS
+===================================== */
+
+      .status {
+        display: flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 7px 11px;
+
+        color: #e2cbd9;
+
+        font-size: 11px;
+
+        border: 1px solid rgba(97, 236, 171, 0.16);
+
+        background: rgba(61, 226, 161, 0.07);
+
+        border-radius: 30px;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+
+        border-radius: 50%;
+
+        background: #63e5a4;
+
+        box-shadow: 0 0 13px #63e5a4;
+
+        animation: pulse 1.7s infinite;
+      }
+
+      @keyframes pulse {
+        50% {
+          opacity: 0.4;
+        }
+      }
+
+      /* =====================================
+   MAIN
+===================================== */
+
+      main {
+        width: min(1100px, calc(100% - 30px));
+
+        margin: 60px auto 35px;
+
+        position: relative;
+
+        z-index: 1;
+      }
+
+      /* =====================================
+   HERO
+===================================== */
+
+      .hero {
+        min-height: 440px;
+
+        display: grid;
+
+        grid-template-columns: 0.9fr 1.1fr;
+
+        align-items: center;
+
+        gap: 60px;
+      }
+
+      /* =====================================
+   PROFILE
+===================================== */
+
+      .profile-area {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+
+        min-height: 370px;
+
+        animation: fadeUp 0.9s 0.2s both;
+      }
+
+      .profile-ring {
+        position: absolute;
+
+        width: 315px;
+        height: 315px;
+
+        border-radius: 50%;
+
+        border: 1px solid rgba(255, 132, 201, 0.32);
+
+        box-shadow: 0 0 30px rgba(255, 104, 185, 0.08);
+
+        animation: spin 18s linear infinite;
+      }
+
+      .profile-ring::before {
+        content: '';
+
+        position: absolute;
+
+        top: 25px;
+        left: 42px;
+
+        width: 9px;
+        height: 9px;
+
+        border-radius: 50%;
+
+        background: var(--pink3);
+
+        box-shadow: 0 0 20px 6px rgba(255, 121, 194, 0.58);
+      }
+
+      .profile-ring.two {
+        width: 360px;
+        height: 360px;
+
+        border-style: dashed;
+
+        border-color: rgba(202, 150, 255, 0.18);
+
+        animation-direction: reverse;
+
+        animation-duration: 27s;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* =====================================
+   PROFILE CARD
+===================================== */
+
+      .profile-card {
+        position: relative;
+
+        z-index: 2;
+
+        width: 240px;
+        height: 300px;
+
+        padding: 7px;
+
+        border-radius: 25px;
+
+        background: linear-gradient(145deg, #ffd1e8, #ff72bd 42%, #9e6bd0);
+
+        box-shadow: 0 0 45px rgba(255, 87, 176, 0.24),
+          inset 0 0 20px rgba(255, 255, 255, 0.12);
+
+        transform-style: preserve-3d;
+
+        transition: transform 0.15s ease;
+      }
+
+      .profile-inner {
+        width: 100%;
+        height: 100%;
+
+        overflow: hidden;
+
+        position: relative;
+
+        border-radius: 20px;
+
+        background: #1c0c18;
+
+        border: 3px solid #1c0c18;
+      }
+
+      .profile-image {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+      }
+
+      .profile-overlay {
+        position: absolute;
+
+        inset: auto 0 0;
+
+        padding: 50px 17px 17px;
+
+        background: linear-gradient(transparent, rgba(20, 5, 17, 0.95));
+      }
+
+      .profile-name {
+        font-family: 'Space Grotesk';
+
+        font-size: 21px;
+
+        font-weight: 700;
+      }
+
+      .profile-role {
+        margin-top: 2px;
+
+        color: var(--pink3);
+
+        font-size: 11px;
+      }
+
+      /* =====================================
+   FLOATING LABELS
+===================================== */
+
+      .floating {
+        position: absolute;
+
+        z-index: 5;
+
+        padding: 9px 13px;
+
+        border: 1px solid rgba(255, 157, 210, 0.23);
+
+        border-radius: 12px;
+
+        background: rgba(45, 16, 39, 0.72);
+
+        backdrop-filter: blur(14px);
+
+        color: #f3dbea;
+
+        font-size: 11px;
+
+        box-shadow: 0 10px 30px rgba(20, 3, 17, 0.22),
+          0 0 20px rgba(255, 100, 183, 0.06);
+
+        animation: bob 4s infinite ease-in-out;
+      }
+
+      .floating.one {
+        top: 35px;
+        right: -5px;
+      }
+
+      .floating.two {
+        bottom: 35px;
+        left: -5px;
+
+        animation-delay: -2s;
+      }
+
+      @keyframes bob {
+        50% {
+          transform: translateY(-9px);
+        }
+      }
+
+      /* =====================================
+   HERO TEXT
+===================================== */
+
+      .intro {
+        animation: fadeUp 0.9s 0.35s both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+
+          transform: translateY(25px);
+        }
+
+        to {
+          opacity: 1;
+
+          transform: translateY(0);
+        }
+      }
+
+      .eyebrow {
+        display: flex;
+
+        align-items: center;
+
+        gap: 9px;
+
+        color: var(--pink);
+
+        font-family: 'Space Grotesk';
+
+        font-size: 11px;
+
+        font-weight: 600;
+
+        letter-spacing: 3px;
+
+        text-shadow: 0 0 18px rgba(255, 101, 182, 0.28);
+      }
+
+      .eyebrow::before {
+        content: '';
+
+        width: 24px;
+        height: 1px;
+
+        background: var(--pink);
+      }
+
+      h1 {
+        margin: 17px 0 8px;
+
+        font-family: 'Space Grotesk';
+
+        font-size: clamp(55px, 7vw, 82px);
+
+        line-height: 1;
+
+        letter-spacing: -4px;
+      }
+
+      h1 span {
+        background: linear-gradient(90deg, #fff9fd, #ff91c9, #d5adff);
+
+        background-clip: text;
+
+        -webkit-background-clip: text;
+
+        color: transparent;
+
+        filter: drop-shadow(0 0 20px rgba(255, 112, 190, 0.18));
+      }
+
+      .role {
+        color: #d2b9ca;
+
+        font-size: 16px;
+      }
+
+      .role strong {
+        color: var(--pink3);
+
+        font-weight: 500;
+
+        text-shadow: 0 0 15px rgba(255, 113, 190, 0.25);
+      }
+
+      .description {
+        max-width: 475px;
+
+        margin: 16px 0 25px;
+
+        color: #c3a9bb;
+
+        font-size: 13px;
+
+        line-height: 2;
+      }
+
+      .description b {
+        color: #ffd0e7 !important;
+      }
+
+      /* =====================================
+   BUTTONS
+===================================== */
+
+      .actions {
+        display: flex;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border: 1px solid var(--border);
+
+        border-radius: 11px;
+
+        padding: 11px 18px;
+
+        font-family: 'Kanit';
+
+        font-size: 12px;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        transition: 0.25s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .primary {
+        color: #3c102d;
+
+        font-weight: 600;
+
+        background: linear-gradient(110deg, #ffc5e4, #ff7dc3);
+
+        box-shadow: 0 6px 25px rgba(255, 90, 176, 0.2);
+      }
+
+      .primary:hover {
+        box-shadow: 0 8px 35px rgba(255, 87, 176, 0.4);
+      }
+
+      .secondary {
+        color: #f0d8e7;
+
+        background: rgba(45, 17, 40, 0.62);
+
+        backdrop-filter: blur(12px);
+      }
+
+      .secondary:hover {
+        border-color: rgba(255, 142, 201, 0.4);
+
+        color: #ffd5e9;
+      }
+
+      /* =====================================
+   MUSIC
+===================================== */
+
+      .music-player {
+        margin-top: 25px;
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 13px;
+
+        width: max-content;
+
+        max-width: 100%;
+
+        padding: 9px 13px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 14px;
+
+        background: rgba(37, 14, 34, 0.62);
+
+        backdrop-filter: blur(15px);
+
+        box-shadow: 0 10px 30px rgba(19, 3, 16, 0.16);
+      }
+
+      .music-button {
+        width: 35px;
+        height: 35px;
+
+        border: 0;
+
+        border-radius: 50%;
+
+        color: #3a102c;
+
+        background: linear-gradient(135deg, #ffd1e9, #ff83c6);
+
+        cursor: pointer;
+
+        box-shadow: 0 0 18px rgba(255, 103, 184, 0.3);
+      }
+
+      .music-info {
+        min-width: 150px;
+      }
+
+      .music-title {
+        color: #f6ddeb;
+
+        font-size: 11px;
+      }
+
+      .music-status {
+        color: #ae91a7;
+
+        font-size: 9px;
+      }
+
+      .music-bars {
+        display: flex;
+
+        align-items: flex-end;
+
+        gap: 3px;
+
+        height: 18px;
+      }
+
+      .music-bars span {
+        width: 3px;
+
+        height: 5px;
+
+        border-radius: 5px;
+
+        background: var(--pink);
+
+        box-shadow: 0 0 8px rgba(255, 106, 185, 0.35);
+
+        animation: bars 0.7s infinite alternate;
+      }
+
+      .music-bars span:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+
+      .music-bars span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .music-bars span:nth-child(4) {
+        animation-delay: 0.45s;
+      }
+
+      .music-bars.paused span {
+        animation-play-state: paused;
+      }
+
+      @keyframes bars {
+        to {
+          height: 17px;
+        }
+      }
+
+      /* =====================================
+   PANELS
+===================================== */
+
+      .grid {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 17px;
+
+        margin-top: 35px;
+      }
+
+      .panel {
+        padding: 22px;
+
+        border: 1px solid var(--border);
+
+        border-radius: 18px;
+
+        background: linear-gradient(
+          140deg,
+          rgba(52, 20, 47, 0.7),
+          rgba(24, 9, 22, 0.67)
+        );
+
+        backdrop-filter: blur(17px);
+
+        box-shadow: 0 15px 45px rgba(15, 2, 13, 0.18);
+
+        transition: 0.3s;
+      }
+
+      .panel:hover {
+        border-color: rgba(255, 130, 196, 0.4);
+
+        transform: translateY(-3px);
+
+        box-shadow: 0 18px 50px rgba(35, 4, 27, 0.24);
+      }
+
+      .title {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-bottom: 17px;
+
+        font-family: 'Space Grotesk';
+
+        font-size: 18px;
+      }
+
+      .title span {
+        color: var(--pink);
+
+        text-shadow: 0 0 15px rgba(255, 102, 183, 0.28);
+      }
+
+      .title::after {
+        content: '';
+
+        flex: 1;
+
+        height: 1px;
+
+        background: linear-gradient(90deg, var(--border), transparent);
+      }
+
+      /* =====================================
+   ABOUT
+===================================== */
+
+      .about {
+        color: #c5adbd;
+
+        font-size: 13px;
+
+        line-height: 2;
+      }
+
+      .about b {
+        color: #ffe0ee;
+
+        font-weight: 500;
+      }
+
+      /* =====================================
+   INFO
+===================================== */
+
+      .info {
+        display: flex;
+
+        flex-direction: column;
+      }
+
+      .info-row {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 10px 0;
+
+        border-bottom: 1px solid rgba(255, 181, 218, 0.08);
+
+        font-size: 12px;
+      }
+
+      .info-row:last-child {
+        border-bottom: 0;
+      }
+
+      .label {
+        color: #aa8fa5;
+      }
+
+      .value {
+        color: #efd9e7;
+      }
+
+      .value.blue {
+        color: var(--pink3);
+
+        text-shadow: 0 0 12px rgba(255, 120, 194, 0.2);
+      }
+
+      /* =====================================
+   STATS
+===================================== */
+
+      .stats {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 10px;
+
+        margin-top: 17px;
+      }
+
+      .stat {
+        padding: 16px 10px;
+
+        text-align: center;
+
+        border: 1px solid rgba(255, 160, 213, 0.13);
+
+        border-radius: 14px;
+
+        background: rgba(49, 17, 44, 0.5);
+
+        transition: 0.25s;
+      }
+
+      .stat:hover {
+        transform: translateY(-3px);
+
+        border-color: rgba(255, 139, 201, 0.28);
+      }
+
+      .stat-number {
+        font-family: 'Space Grotesk';
+
+        font-size: 20px;
+
+        font-weight: 700;
+
+        color: #ffe6f2;
+
+        text-shadow: 0 0 15px rgba(255, 117, 191, 0.16);
+      }
+
+      .stat-label {
+        margin-top: 3px;
+
+        color: #a4879d;
+
+        font-size: 10px;
+      }
+
+      /* =====================================
+   SOCIAL
+===================================== */
+
+      .social-panel {
+        margin-top: 17px;
+      }
+
+      .socials {
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 10px;
+      }
+
+      .social {
+        padding: 17px 5px 13px;
+
+        text-align: center;
+
+        text-decoration: none;
+
+        color: #c2a7b8;
+
+        border: 1px solid rgba(255, 160, 213, 0.13);
+
+        border-radius: 14px;
+
+        background: rgba(45, 15, 41, 0.55);
+
+        transition: 0.3s;
+      }
+
+      .social:hover {
+        color: #ffd4e8;
+
+        transform: translateY(-5px);
+
+        border-color: rgba(255, 126, 193, 0.46);
+
+        background: rgba(84, 29, 68, 0.52);
+
+        box-shadow: 0 10px 28px rgba(255, 81, 172, 0.12);
+      }
+
+      .social-icon {
+        display: block;
+
+        margin-bottom: 7px;
+
+        font-family: 'Space Grotesk';
+
+        font-size: 21px;
+
+        font-weight: 700;
+
+        color: #ffd2e8;
+
+        text-shadow: 0 0 14px rgba(255, 106, 185, 0.25);
+      }
+
+      .social-name {
+        font-size: 11px;
+      }
+
+      .social-sub {
+        margin-top: 2px;
+
+        color: #9c8194;
+
+        font-size: 9px;
+      }
+
+      /* =====================================
+   FOOTER
+===================================== */
+
+      footer {
+        width: min(1100px, calc(100% - 30px));
+
+        margin: 28px auto 20px;
+
+        padding: 18px 0;
+
+        border-top: 1px solid rgba(255, 166, 216, 0.11);
+
+        display: flex;
+
+        justify-content: space-between;
+
+        color: #957b90;
+
+        font-size: 10px;
+      }
+
+      footer span {
+        color: #e9a4ca;
+
+        text-shadow: 0 0 10px rgba(255, 110, 187, 0.2);
+      }
+
+      /* =====================================
+   MOBILE
+===================================== */
+
+      @media (max-width: 760px) {
+        nav {
+          margin-top: 10px;
+        }
+
+        .nav-link {
+          display: none;
+        }
+
+        main {
+          margin-top: 35px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+
+          gap: 20px;
+        }
+
+        .profile-area {
+          min-height: 350px;
+        }
+
+        .intro {
+          text-align: center;
+        }
+
+        .eyebrow {
+          justify-content: center;
+        }
+
+        .description {
+          margin-left: auto;
+
+          margin-right: auto;
+        }
+
+        .actions {
+          justify-content: center;
+        }
+
+        .music-player {
+          margin-left: auto;
+
+          margin-right: auto;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .socials {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        footer {
+          flex-direction: column;
+
+          align-items: center;
+
+          gap: 7px;
+        }
+
+        .enter-orb {
+          width: 340px;
+          height: 340px;
+        }
+      }
+
+      @media (max-width: 430px) {
+        h1 {
+          font-size: 55px;
+        }
+
+        .profile-card {
+          width: 215px;
+          height: 275px;
+        }
+
+        .profile-ring {
+          width: 285px;
+          height: 285px;
+        }
+
+        .profile-ring.two {
+          width: 325px;
+          height: 325px;
+        }
+
+        .floating.one {
+          right: 0;
+        }
+
+        .floating.two {
+          left: 0;
+        }
+
+        .socials {
+          grid-template-columns: 1fr;
+        }
+
+        .enter-logo {
+          font-size: 70px;
+        }
+
+        .enter-orb {
+          width: 285px;
+          height: 285px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =====================================
+     ENTER SCREEN
+===================================== -->
+
+    <div id="enterScreen">
+      <div class="enter-bg">
+        <div class="enter-grid"></div>
+
+        <div class="enter-orb"></div>
+      </div>
+
+      <div class="enter-content">
+        <div class="enter-mini">PERSONAL SPACE</div>
+
+        <div class="enter-logo">Zora<span>X</span></div>
+
+        <p class="enter-description">
+          Welcome to my digital world.<br />
+          Enter to explore my world with background music.
+        </p>
+
+        <button class="enter-button" id="enterButton">ENTER</button>
+
+        <div class="enter-note">
+          ♪ Background music will start automatically
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================
+     LOADING
+===================================== -->
+
+    <div id="loader">
+      <div class="loader-content">
+        <div class="loader-logo">Zora<span>X</span></div>
+
+        <div class="loader-bar">
+          <div class="loader-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BACKGROUND -->
+
+    <canvas id="particles"></canvas>
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- =====================================
+     NAVBAR
+===================================== -->
+
+    <nav>
+      <div class="logo">Zora<span>X</span>.</div>
+
+      <div class="nav-right">
+        <a class="nav-link" href="#home"> Home </a>
+
+        <a class="nav-link" href="#about"> About </a>
+
+        <a class="nav-link" href="#social"> Social </a>
+
+        <div class="status">
+          <span class="status-dot"></span>
+
+          Online
+        </div>
+      </div>
+    </nav>
+
+    <main id="home">
+      <!-- =====================================
+     HERO
+===================================== -->
+
+      <section class="hero">
+        <!-- PROFILE -->
+
+        <div class="profile-area">
+          <div class="profile-ring"></div>
+
+          <div class="profile-ring two"></div>
+
+          <div class="profile-card" id="profileCard">
+            <div class="profile-inner">
+              <img
+                class="profile-image"
+                src="https://media.discordapp.net/attachments/1460184374711681220/1552592165178450062/3b2db0a419bbe942a77a9790e2de8fa6.jpg?ex=6abf6621&is=6abe14a1&hm=09fb08dafec49e37cda4972b6b9f605bbd1610abaabdf64cdc7468fe0e46c914&=&format=webp"
+                alt="ZoraX Profile"
+              />
+
+              <div class="profile-overlay">
+                <div class="profile-name">ZoraX</div>
+
+                <div class="profile-role">Digital Creator</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating one">✦ Digital World</div>
+
+          <div class="floating two">◈ Creative Mind</div>
+        </div>
+
+        <!-- =====================================
+         INTRO
+    ===================================== -->
+
+        <div class="intro">
+          <div class="eyebrow">WELCOME TO MY WORLD</div>
+
+          <h1>I'm <span>ZoraX</span></h1>
+
+          <div class="role">
+            Just a
+
+            <strong id="typing"> Developer </strong>_
+          </div>
+
+          <p class="description">
+            ยินดีต้อนรับเข้าสู่เว็บไซต์ส่วนตัวของผม ที่รวมตัวตน ความสนใจ
+            และโลกดิจิทัลของ
+            <b> ZoraX </b>
+            เอาไว้ในที่เดียว
+          </p>
+
+          <div class="actions">
+            <a href="#about" class="btn primary"> ✦ Explore More </a>
+
+            <button class="btn secondary" id="copyBtn">▣ Copy Username</button>
+          </div>
+
+          <!-- =====================================
+             MUSIC PLAYER
+        ===================================== -->
+
+          <div class="music-player">
+            <button class="music-button" id="musicButton">▶</button>
+
+            <div class="music-info">
+              <div class="music-title">ZoraX — Background Music</div>
+
+              <div class="music-status" id="musicStatus">
+                Waiting for entry...
+              </div>
+            </div>
+
+            <div class="music-bars paused" id="musicBars">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <!-- YOUTUBE PLAYER -->
+
+          <div
+            id="youtubePlayer"
+            style="
+              position: fixed;
+              width: 1px;
+              height: 1px;
+              opacity: 0;
+              pointer-events: none;
+              left: -9999px;
+              top: -9999px;
+            "
+          ></div>
+        </div>
+      </section>
+
+      <!-- =====================================
+     ABOUT + INFO
+===================================== -->
+
+      <section class="grid">
+        <div class="panel" id="about">
+          <h2 class="title">
+            <span> 01. </span>
+
+            About Me
+          </h2>
+
+          <p class="about">
+            สวัสดีผม <b>ZoraX</b>
+
+            <br /><br />
+
+            ผมสนใจในเรื่อง
+            <b>การเขียนโค้ด</b>, <b>ออกแบบต่างๆ</b>,
+            <b>เกมมิ่ง</b>
+
+            <br />
+
+            ชอบทดลองอะไรต่างๆ และพร้อมพัฒนาความสามารถตัวเอง
+          </p>
+        </div>
+
+        <div class="panel">
+          <h2 class="title">
+            <span> 02. </span>
+
+            My Info
+          </h2>
+
+          <div class="info">
+            <div class="info-row">
+              <span class="label"> ⌖ Name </span>
+
+              <span class="value"> ZoraX </span>
+            </div>
+
+            <div class="info-row">
+              <span class="label"> ◈ Role </span>
+
+              <span class="value"> Digital Creator </span>
+            </div>
+
+            <div class="info-row">
+              <span class="label"> ⌘ Interests </span>
+
+              <span class="value"> Coding / Design / Gaming </span>
+            </div>
+
+            <div class="info-row">
+              <span class="label"> ◷ Time </span>
+
+              <span class="value blue" id="clock"> 00:00:00 </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+     STATS
+===================================== -->
+
+      <section class="panel" style="margin-top: 17px">
+        <h2 class="title">
+          <span> 03. </span>
+
+          ZoraX Stats
+        </h2>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-number" id="visitCount">001</div>
+
+            <div class="stat-label">VISITS</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">∞</div>
+
+            <div class="stat-label">CREATIVITY</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">24/7</div>
+
+            <div class="stat-label">ONLINE</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+     SOCIAL
+===================================== -->
+
+      <section class="panel social-panel" id="social">
+        <h2 class="title">
+          <span> 04. </span>
+
+          Connect With Me
+        </h2>
+
+        <div class="socials">
+          <a
+            class="social"
+            href="https://discord.com/channels/@me/1395555340740988949"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="social-icon"> ◉ </span>
+
+            <div class="social-name">Discord</div>
+
+            <div class="social-sub">Connect</div>
+          </a>
+
+          <a
+            class="social"
+            href="https://www.tiktok.com/@jaxtyz_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="social-icon"> ♪ </span>
+
+            <div class="social-name">TikTok</div>
+
+            <div class="social-sub">@jaxtyz_</div>
+          </a>
+
+          <a
+            class="social"
+            href="https://www.instagram.com/jaxtyz.xy?stkn=MWoxbTVjdzVxdnl0NA=="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="social-icon"> ◎ </span>
+
+            <div class="social-name">Instagram</div>
+
+            <div class="social-sub">@jaxtyz.xy</div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================
+     FOOTER
+===================================== -->
+
+    <footer>
+      <div>
+        © 2026
+
+        <span> ZoraX </span>
+
+        — All rights reserved.
+      </div>
+
+      <div>
+        Designed with
+
+        <span> ✦ </span>
+
+        & passion
+      </div>
+    </footer>
+
+    <script>
+      /* =====================================
+   ENTER + MUSIC
+===================================== */
+
+      const enterScreen = document.getElementById('enterScreen');
+
+      const enterButton = document.getElementById('enterButton');
+
+      let youtubePlayer = null;
+
+      let youtubeReady = false;
+
+      let musicPlaying = false;
+
+      let userEntered = false;
+
+      /*
+    โหลด YouTube IFrame API
+*/
+
+      const youtubeScript = document.createElement('script');
+
+      youtubeScript.src = 'https://www.youtube.com/iframe_api';
+
+      document.head.appendChild(youtubeScript);
+
+      /*
+    YouTube API พร้อม
+*/
+
+      function onYouTubeIframeAPIReady() {
+        youtubePlayer = new YT.Player('youtubePlayer', {
+          videoId: 'OvHfq4wwsIo',
+
+          playerVars: {
+            autoplay: 0,
+
+            controls: 0,
+
+            loop: 1,
+
+            playlist: 'OvHfq4wwsIo',
+
+            playsinline: 1,
+
+            rel: 0,
+          },
+
+          events: {
+            onReady: onYoutubeReady,
+
+            onStateChange: onYoutubeState,
+          },
+        });
+      }
+
+      /*
+    Player พร้อมแล้ว
+*/
+
+      function onYoutubeReady(event) {
+        youtubeReady = true;
+
+        document.getElementById('musicStatus').textContent =
+          'Ready — press ENTER';
+
+        /*
+        ถ้าผู้ใช้กด ENTER
+        ก่อน YouTube โหลดเสร็จ
+    */
+
+        if (userEntered) {
+          startMusic();
+        }
+      }
+
+      /*
+    เริ่มเพลง
+*/
+
+      function startMusic() {
+        if (!youtubePlayer || !youtubeReady) {
+          return;
+        }
+
+        try {
+          youtubePlayer.unMute();
+
+          youtubePlayer.setVolume(70);
+
+          youtubePlayer.playVideo();
+
+          document.getElementById('musicStatus').textContent =
+            'Starting music...';
+        } catch (error) {
+          console.log('Music start error:', error);
+        }
+      }
+
+      /*
+    ENTER
+*/
+
+      enterButton.addEventListener('click', () => {
+        userEntered = true;
+
+        /*
+            เริ่มเพลงจาก click
+        */
+
+        if (youtubeReady) {
+          youtubePlayer.unMute();
+
+          youtubePlayer.setVolume(70);
+
+          youtubePlayer.playVideo();
+        }
+
+        enterButton.textContent = 'ENTERING...';
+
+        enterButton.style.pointerEvents = 'none';
+
+        setTimeout(() => {
+          enterScreen.classList.add('hide');
+        }, 180);
+
+        setTimeout(() => {
+          if (youtubeReady) {
+            startMusic();
+          }
+        }, 500);
+      });
+
+      /* =====================================
+   LOADING
+===================================== */
+
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.getElementById('loader').classList.add('hide');
+        }, 1900);
+      });
+
+      /* =====================================
+   CURSOR GLOW
+===================================== */
+
+      const cursorGlow = document.getElementById('cursorGlow');
+
+      if (window.matchMedia('(pointer:fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+          cursorGlow.style.left = e.clientX + 'px';
+
+          cursorGlow.style.top = e.clientY + 'px';
+        });
+      } else {
+        cursorGlow.style.display = 'none';
+      }
+
+      /* =====================================
+   TYPING EFFECT
+===================================== */
+
+      const words = [
+        'Developer',
+        'Gamer',
+        'Digital Creator',
+        'Tech Enthusiast',
+      ];
+
+      const typing = document.getElementById('typing');
+
+      let wordIndex = 0;
+
+      let charIndex = 0;
+
+      let deleting = false;
+
+      function type() {
+        const word = words[wordIndex];
+
+        typing.textContent = word.substring(0, charIndex);
+
+        if (!deleting) {
+          if (charIndex < word.length) {
+            charIndex++;
+
+            setTimeout(type, 95);
+          } else {
+            deleting = true;
+
+            setTimeout(type, 1200);
+          }
+        } else {
+          if (charIndex > 0) {
+            charIndex--;
+
+            setTimeout(type, 45);
+          } else {
+            deleting = false;
+
+            wordIndex = (wordIndex + 1) % words.length;
+
+            setTimeout(type, 300);
+          }
+        }
+      }
+
+      type();
+
+      /* =====================================
+   CLOCK
+===================================== */
+
+      function updateClock() {
+        const now = new Intl.DateTimeFormat('th-TH', {
+          timeZone: 'Asia/Bangkok',
+
+          hour: '2-digit',
+
+          minute: '2-digit',
+
+          second: '2-digit',
+
+          hour12: false,
+        }).format(new Date());
+
+        document.getElementById('clock').textContent = now;
+      }
+
+      updateClock();
+
+      setInterval(updateClock, 1000);
+
+      /* =====================================
+   COPY USERNAME
+===================================== */
+
+      document.getElementById('copyBtn').addEventListener('click', async () => {
+        const button = document.getElementById('copyBtn');
+
+        try {
+          await navigator.clipboard.writeText('ZoraX');
+
+          button.textContent = '✓ Copied!';
+        } catch {
+          button.textContent = 'ZoraX';
+        }
+
+        setTimeout(() => {
+          button.textContent = '▣ Copy Username';
+        }, 1800);
+      });
+
+      /* =====================================
+   MUSIC BUTTON
+===================================== */
+
+      document.getElementById('musicButton').addEventListener('click', () => {
+        if (!youtubeReady) {
+          document.getElementById('musicStatus').textContent =
+            'Loading music...';
+
+          return;
+        }
+
+        if (musicPlaying) {
+          youtubePlayer.pauseVideo();
+        } else {
+          youtubePlayer.unMute();
+
+          youtubePlayer.setVolume(70);
+
+          youtubePlayer.playVideo();
+        }
+      });
+
+      /* =====================================
+   YOUTUBE STATE
+===================================== */
+
+      function onYoutubeState(event) {
+        const status = document.getElementById('musicStatus');
+
+        const button = document.getElementById('musicButton');
+
+        const bars = document.getElementById('musicBars');
+
+        if (event.data === YT.PlayerState.PLAYING) {
+          musicPlaying = true;
+
+          button.textContent = 'Ⅱ';
+
+          status.textContent = 'Now playing';
+
+          bars.classList.remove('paused');
+        }
+
+        if (event.data === YT.PlayerState.PAUSED) {
+          musicPlaying = false;
+
+          button.textContent = '▶';
+
+          status.textContent = 'Paused';
+
+          bars.classList.add('paused');
+        }
+
+        if (event.data === YT.PlayerState.ENDED) {
+          youtubePlayer.playVideo();
+        }
+      }
+
+      /* =====================================
+   3D PROFILE TILT
+===================================== */
+
+      const profile = document.getElementById('profileCard');
+
+      if (window.matchMedia('(pointer:fine)').matches) {
+        profile.addEventListener('mousemove', (e) => {
+          const rect = profile.getBoundingClientRect();
+
+          const x = e.clientX - rect.left;
+
+          const y = e.clientY - rect.top;
+
+          const rotateX = (y / rect.height - 0.5) * -12;
+
+          const rotateY = (x / rect.width - 0.5) * 12;
+
+          profile.style.transform = `
+                perspective(800px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                scale(1.035)
+                `;
+        });
+
+        profile.addEventListener('mouseleave', () => {
+          profile.style.transform = `
+                perspective(800px)
+                rotateX(0deg)
+                rotateY(0deg)
+                scale(1)
+                `;
+        });
+      }
+
+      /* =====================================
+   VISIT COUNTER
+===================================== */
+
+      let visits = Number(localStorage.getItem('zorax_visits') || 0);
+
+      visits++;
+
+      localStorage.setItem('zorax_visits', visits);
+
+      document.getElementById('visitCount').textContent = String(
+        visits
+      ).padStart(3, '0');
+
+      /* =====================================
+   PARTICLES
+===================================== */
+
+      const canvas = document.getElementById('particles');
+
+      const ctx = canvas.getContext('2d');
+
+      let particles = [];
+
+      let width;
+
+      let height;
+
+      let dpr;
+
+      function resize() {
+        width = window.innerWidth;
+
+        height = window.innerHeight;
+
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        canvas.width = width * dpr;
+
+        canvas.height = height * dpr;
+
+        canvas.style.width = width + 'px';
+
+        canvas.style.height = height + 'px';
+
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        const count = Math.min(
+          70,
+
+          Math.floor((width * height) / 14000)
+        );
+
+        particles = Array.from(
+          {
+            length: count,
+          },
+
+          () => ({
+            x: Math.random() * width,
+
+            y: Math.random() * height,
+
+            r: Math.random() * 1.4 + 0.4,
+
+            speed: Math.random() * 0.28 + 0.08,
+
+            alpha: Math.random() * 0.45 + 0.12,
+          })
+        );
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (const p of particles) {
+          p.y -= p.speed;
+
+          if (p.y < -5) {
+            p.y = height + 5;
+
+            p.x = Math.random() * width;
+          }
+
+          ctx.beginPath();
+
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+
+          /*
+            Pink particles
+        */
+
+          ctx.fillStyle = `rgba(
+                255,
+                157,
+                211,
+                ${p.alpha}
+            )`;
+
+          ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+
+      draw();
+
+      window.addEventListener('resize', resize);
+    </script>
+  </body>
+</html>
